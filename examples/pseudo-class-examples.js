@@ -95,7 +95,27 @@ export const excludesText = new CustomPseudoClass({
   name: 'excludesText',
   args: ['selector', 'string'],
   match: 'selector',
-  filter: '!tag.textContent.includes(string)',
+  filter: 'tag.textContent.includes(string) === false',
   target: 'tag',
   selector: '${selector}'
+})
+
+// :excludes-regex()
+export const excludesRegex = new CustomPseudoClass({
+  name: 'excludesRegex',
+  args: ['selector', 'regex'],
+  match: 'selector',
+  filter: 'regex.test(tag.textContent) === false',
+  target: 'tag',
+  selector: '${selector}'
+})
+
+// :grandparent
+export const grandparent = new CustomPseudoClass({
+  name: 'grandparent',
+  args: ['selector'],
+  match: 'selector',
+  filter: 'tag.parentElement.parentElement',
+  target: 'tag.parentElement.parentElement',
+  selector: ''
 })
