@@ -90,22 +90,22 @@ export const maxWidth = new CustomPseudoClass({
   selector: '${selector}'
 })
 
-// :excludes-text()
-export const excludesText = new CustomPseudoClass({
-  name: 'excludesText',
-  args: ['selector', 'string'],
-  match: 'selector',
-  filter: 'tag.textContent.includes(string) === false',
-  target: 'tag',
-  selector: '${selector}'
-})
-
 // :excludes-regex()
 export const excludesRegex = new CustomPseudoClass({
   name: 'excludesRegex',
   args: ['selector', 'regex'],
   match: 'selector',
   filter: 'regex.test(tag.textContent) === false',
+  target: 'tag',
+  selector: '${selector}'
+})
+
+// :excludes-text()
+export const excludesText = new CustomPseudoClass({
+  name: 'excludesText',
+  args: ['selector', 'string'],
+  match: 'selector',
+  filter: 'tag.textContent.includes(string) === false',
   target: 'tag',
   selector: '${selector}'
 })
@@ -118,4 +118,28 @@ export const grandparent = new CustomPseudoClass({
   filter: 'tag.parentElement.parentElement',
   target: 'tag.parentElement.parentElement',
   selector: ''
+})
+
+// :in-viewport()
+export const inViewport = new CustomPseudoClass({
+  name: 'inViewport',
+  args: ['selector', 'option'],
+  match: 'selector',
+  filter: `
+    {
+
+      fully: tag.getBoundingClientRect().top >= 0
+        && tag.getBoundingClientRect().left >= 0
+        && tag.getBoundingClientRect().right <= innerWidth
+        && tag.getBoundingClientRect().bottom <= innerHeight,
+
+      partly: tag.getBoundingClientRect().top + tag.offsetHeight >= 0
+        && tag.getBoundingClientRect().left + tag.offsetWidth >= 0
+        && tag.getBoundingClientRect().right - tag.offsetWidth <= innerWidth
+        && tag.getBoundingClientRect().bottom - tag.offsetHeight <= innerHeight
+
+    }[option]
+  `,
+  target: 'tag',
+  selector: '${selector}'
 })
