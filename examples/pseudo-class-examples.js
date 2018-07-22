@@ -127,17 +127,14 @@ export const inViewport = new CustomPseudoClass({
   match: 'selector',
   filter: `
     {
-
       fully: tag.getBoundingClientRect().top >= 0
         && tag.getBoundingClientRect().left >= 0
         && tag.getBoundingClientRect().right <= innerWidth
         && tag.getBoundingClientRect().bottom <= innerHeight,
-
       partly: tag.getBoundingClientRect().top + tag.offsetHeight >= 0
         && tag.getBoundingClientRect().left + tag.offsetWidth >= 0
         && tag.getBoundingClientRect().right - tag.offsetWidth <= innerWidth
         && tag.getBoundingClientRect().bottom - tag.offsetHeight <= innerHeight
-
     }[option]
   `,
   target: 'tag',

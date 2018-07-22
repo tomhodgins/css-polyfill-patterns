@@ -55,15 +55,14 @@ export const overflow = new CustomAtRule({
 export const viewport = new CustomAtRule({
   name: 'overflow',
   features: {
-    partly: tag =>
-      tag.offsetTop - innerHeight < scrollY
-      && tag.offsetTop - innerHeight + tag.offsetHeight
-      < scrollY + tag.offsetHeight
-      && scrollY < tag.offsetTop + tag.offsetHeight,
-    fully: tag =>
-      tag.offsetTop - innerHeight < scrollY
-      && tag.offsetTop - innerHeight + tag.offsetHeight < scrollY
-      && scrollY < tag.offsetTop
+    fully: tag => tag.getBoundingClientRect().top >= 0
+      && tag.getBoundingClientRect().left >= 0
+      && tag.getBoundingClientRect().right <= innerWidth
+      && tag.getBoundingClientRect().bottom <= innerHeight,
+    partly: tag => tag.getBoundingClientRect().top + tag.offsetHeight >= 0
+      && tag.getBoundingClientRect().left + tag.offsetWidth >= 0
+      && tag.getBoundingClientRect().right - tag.offsetWidth <= innerWidth
+      && tag.getBoundingClientRect().bottom - tag.offsetHeight <= innerHeight
   },
   attribute: ['selector', 'conditions'],
   test: 'features[conditions](tag)'
