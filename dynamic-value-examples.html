@@ -1,0 +1,71 @@
+<link href=https://staticresource.com/sixty.css rel=stylesheet>
+
+<h1>Dynamic Values</h1>
+
+<h2>Aspect Ratio</h2>
+
+<div class=aspect></div>
+
+<h2>Element Units</h2>
+
+<ul class=eunit>
+  <li class=ew>EW Units
+  <li class=eh>EH Units
+  <li class=emin>EMIN Units
+  <li class=emax>EMAX Units
+</ul>
+
+<h2>Variables</h2>
+
+<ul class=variables data-background="gold">
+  <li>item
+  <li data-color="red" data-background="lime">item
+  <li>item
+  <li>item
+</ul>
+
+<script type=module>
+  import {
+    aspect,
+    eunit,
+    variable
+  } from './examples/dynamic-value-examples.js'
+
+  import jsincss from 'https://unpkg.com/jsincss/index.vanilla.js'
+
+  jsincss(()=>`
+
+    /* aspect-ratio: width/height; */
+    ${aspect('.aspect', 16/9)}
+    .aspect {
+      background: lime;
+    }
+
+    /* EW, EH, EMIN, EMAX units */
+    ${eunit('.eunit .ew', `
+      font-size: 10ew;
+    `)}
+    ${eunit('.eunit .eh', `
+      font-size: 90eh;
+      max-height: 100px;
+    `)}
+    ${eunit('.eunit .emin', `
+      font-size: 90emin;
+      max-height: 100px;
+    `)}
+    ${eunit('.eunit .emax', `
+      font-size: 10emax;
+    `)}
+
+    /* --frontend: 'variables'; */
+    ${variable('.variables ', `
+      --color: blue
+    `)}
+
+    ${variable('.variables li', `
+      color: var(--color);
+      background: var(--background);
+    `)}
+
+  `)
+</script>

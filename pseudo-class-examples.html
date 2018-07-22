@@ -1,0 +1,217 @@
+<link href=https://staticresource.com/sixty.css rel=stylesheet>
+
+<h1>Custom Pseudo Classes</h1>
+
+<h2>Ancestor</h2>
+
+<ul class=ancestor>
+  <li>item with <span>span</span>
+  <li>item
+  <li class=target>target
+  <li>item
+  <li>item
+</ul>
+
+<h2>Closest</h2>
+
+<div class=closest>
+  <div>
+    <div class=demo>
+      <div>
+        <div>
+          <div class=demo>
+            <div>
+              <div>
+                <div class=target>target</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2>Has</h2>
+
+<div class=has>
+
+  <ul>
+    <li>item
+  </ul>
+
+  <ul>
+    <li>item
+    <li>item
+  </ul>
+
+  <ul>
+    <li>item
+    <li>item
+    <li>item
+  </ul>
+
+  <ul>
+    <li>item
+    <li>item
+    <li>item
+    <li>item with <span>span</span>
+  </ul>
+
+</div>
+
+<h2>Parent</h2>
+
+<ul class=parent>
+  <li>item
+  <li>item
+  <li class=target>target
+  <li>item
+  <li>item
+</ul>
+
+<h2>Previous</h2>
+
+<ul class=prev>
+  <li>item
+  <li>item
+  <li class=target>target
+  <li>item
+  <li>item
+</ul>
+
+<h2>Contains Regex</h2>
+
+<ul class=regex>
+  <li>item
+  <li>target
+  <li>item
+</ul>
+
+<h2>Contains Text</h2>
+
+<ul class=includes>
+  <li>item
+  <li>target
+  <li>item
+</ul>
+
+<h2>Excludes Text</h2>
+
+<ul class=excludes>
+  <li>This
+  <li>is
+  <li>not
+  <li>a
+  <li>test
+</ul>
+
+
+<h2>Min Width</h2>
+
+<div class=minWidth style=width:100%></div>
+<div class=minWidth style=width:75%></div>
+<div class=minWidth style=width:50%></div>
+<div class=minWidth style=width:33%></div>
+
+<h2>Max Width</h2>
+
+<div class=maxWidth style=width:100%></div>
+<div class=maxWidth style=width:75%></div>
+<div class=maxWidth style=width:50%></div>
+<div class=maxWidth style=width:33%></div>
+
+<script type=module>
+  import {
+    ancestor,
+    closest,
+    has,
+    parent,
+    previous,
+    containsRegex,
+    containsText,
+    minWidth,
+    maxWidth,
+    excludesText
+  } from './examples/pseudo-class-examples.js'
+
+  import jsincss from 'https://unpkg.com/jsincss/index.vanilla.js'
+
+  jsincss(()=>`
+
+    /* :ancestor() */
+    ${ancestor('.ancestor span', 'li', `
+      background: orange;
+    `)}
+
+    /* :closest() */
+    .closest,
+    .closest div {
+      border: 1px solid;
+      padding: 1em;
+    }
+
+    ${closest('.closest .target', '.demo', `
+      border: 4px dashed red;
+    `)}
+
+    /* :has() */
+    .has span {
+      background: red;
+    }
+
+    ${has('.has ul', 'li:nth-child(3)', `
+      background: cyan;
+    `)}
+
+    ${has('.has *', 'span', `
+      padding-top: 5px;
+      padding-bottom: 5px;
+      border: 4px dashed red;
+    `)}
+
+    /* :parent */
+    ${parent('.parent .target', `
+      border: 4px dashed red;
+    `)}
+
+    /* :previous */
+    ${previous('.prev .target', `
+      background: teal;
+    `)}
+
+    /* :contains-regex() */
+    ${containsRegex('.regex li', /M/i, `
+      background: plum;
+    `)}
+
+    /* :contains-text() */
+    ${containsText('.includes li', 'target', `
+      background: blue;
+    `)}
+
+    /* :excludes-text() */
+    ${excludesText('.excludes li', 'test', `
+      background: lime;
+    `)}
+
+    /* :min-width() */
+    .minWidth {
+      height: 30px;
+      border: 1px dotted lime;
+    }
+    ${minWidth('.minWidth', 300, `
+      background: lime;
+    `)}
+
+    /* :max-width() */
+    .maxWidth {
+      height: 30px;
+      border: 1px dotted purple;
+    }
+    ${maxWidth('.maxWidth', 300, `
+      background: purple;
+    `)}
+
+  `)
+</script>
