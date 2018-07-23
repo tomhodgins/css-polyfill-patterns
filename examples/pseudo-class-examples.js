@@ -345,16 +345,15 @@ export const attrGreater = new CustomPseudoClass({
   args: ['selector', 'attribute', 'number'],
   match: 'selector',
   filter: `
-    parseInt(
+    parseFloat(
       attribute === 'value'
       ? tag.value
-      : tag.getAttribute
-    ) > number`,
+      : tag.getAttribute(attribute)
+    ) > number
+  `,
   target: 'tag',
   selector: '${selector}'
 })
-console.log(attrGreater)
-
 
 // :attr-less-than()
 export const attrLess = new CustomPseudoClass({
@@ -362,11 +361,12 @@ export const attrLess = new CustomPseudoClass({
   args: ['selector', 'attribute', 'number'],
   match: 'selector',
   filter: `
-    parseInt(
+    parseFloat(
       attribute === 'value'
       ? tag.value
-      : tag.getAttribute
-    ) < number`,
+      : tag.getAttribute(attribute)
+    ) < number
+  `,
   target: 'tag',
   selector: '${selector}'
 })
