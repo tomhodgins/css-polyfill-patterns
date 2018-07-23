@@ -302,6 +302,15 @@
 
 <input type=number class=attr-less value=0>
 
+<h2>Empty</h2>
+
+<p class=empty></p>
+<p class=empty> </p>
+<p class=empty>	</p>
+<p class=empty>
+</p>
+<p class=empty>not empty</p>
+
 <script type=module>
   import {
     ancestor,
@@ -335,7 +344,8 @@
     maxWidth,
     orientation,
     attrGreater,
-    attrLess
+    attrLess,
+    empty
   } from './examples/pseudo-class-examples.js'
 
   import jsincss from 'https://unpkg.com/jsincss/index.vanilla.js'
@@ -581,6 +591,14 @@
         background: orange;
       `
     )}
+
+    /* :empty */
+    .empty {
+      min-height: 2em;
+    }
+    ${empty('.empty', `
+      border: 10px solid slateblue;
+    `)}
 
   `)
 

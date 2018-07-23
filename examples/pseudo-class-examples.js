@@ -370,3 +370,13 @@ export const attrLess = new CustomPseudoClass({
   target: 'tag',
   selector: '${selector}'
 })
+
+// :empty()
+export const empty = new CustomPseudoClass({
+  name: 'empty',
+  args: ['selector',],
+  match: 'selector',
+  filter: '(tag.value ? tag.value : tag.textContent).trim() === ""',
+  target: 'tag',
+  selector: '${selector}'
+})
