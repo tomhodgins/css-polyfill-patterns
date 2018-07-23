@@ -60,6 +60,27 @@
 
 </div>
 
+<h2>Has Not</h2>
+
+<div class=hasNot>
+
+  <ul>
+    <li>item
+  </ul>
+
+  <ul>
+    <li>item
+    <li>item
+  </ul>
+
+  <ul>
+    <li>item
+    <li>item
+    <li>item
+  </ul>
+
+</div>
+
 <h2>Parent</h2>
 
 <ul class=parent>
@@ -149,6 +170,7 @@
     ancestor,
     closest,
     has,
+    hasNot,
     parent,
     previous,
     containsRegex,
@@ -193,6 +215,11 @@
     ${has('.has *', 'span', `
       padding-top: 5px;
       padding-bottom: 5px;
+      border: 4px dashed red;
+    `)}
+
+    /* :not(:has()) */
+    ${hasNot('.hasNot ul', 'li:nth-of-type(2)', `
       border: 4px dashed red;
     `)}
 
@@ -257,9 +284,9 @@
 
   `)
 
+  /* :in-viewport() */
   jsincss(()=>`
 
-    /* :in-viewport */
     .inViewport {
       padding: 2em;
       border: 1px solid currentColor;

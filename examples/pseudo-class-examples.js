@@ -30,6 +30,16 @@ export const has = new CustomPseudoClass({
   selector: '${selector}'
 })
 
+// :not(:has())
+export const hasNot = new CustomPseudoClass({
+  name: 'hasNot',
+  args: ['selector', 'child'],
+  match: 'selector',
+  filter: 'tag.querySelector(child) === null',
+  target: 'tag',
+  selector: '${selector}'
+})
+
 // :parent
 export const parent = new CustomPseudoClass({
   name: 'parent',
