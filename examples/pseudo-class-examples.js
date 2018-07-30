@@ -1,7 +1,7 @@
-import CustomPseudoClass from '../lib/custom-pseudo-class.js'
+const CustomPseudoClass = require('../lib/custom-pseudo-class.js')
 
 // :ancestor()
-export const ancestor = new CustomPseudoClass({
+module.exports.ancestor = new CustomPseudoClass({
   name: 'ancestor',
   args: ['selector', 'ancestor'],
   match: 'ancestor',
@@ -11,7 +11,7 @@ export const ancestor = new CustomPseudoClass({
 })
 
 // :closest()
-export const closest = new CustomPseudoClass({
+module.exports.closest = new CustomPseudoClass({
   name: 'closest',
   args: ['selector', 'ancestor'],
   match: 'selector',
@@ -21,7 +21,7 @@ export const closest = new CustomPseudoClass({
 })
 
 // :has()
-export const has = new CustomPseudoClass({
+module.exports.has = new CustomPseudoClass({
   name: 'has',
   args: ['selector', 'child'],
   match: 'selector',
@@ -31,7 +31,7 @@ export const has = new CustomPseudoClass({
 })
 
 // :not(:has())
-export const hasNot = new CustomPseudoClass({
+module.exports.hasNot = new CustomPseudoClass({
   name: 'hasNot',
   args: ['selector', 'child'],
   match: 'selector',
@@ -41,7 +41,7 @@ export const hasNot = new CustomPseudoClass({
 })
 
 // :parent
-export const parent = new CustomPseudoClass({
+module.exports.parent = new CustomPseudoClass({
   name: 'parent',
   args: ['selector'],
   match: 'selector',
@@ -51,7 +51,7 @@ export const parent = new CustomPseudoClass({
 })
 
 // :previous
-export const previous = new CustomPseudoClass({
+module.exports.previous = new CustomPseudoClass({
   name: 'previous',
   args: ['selector'],
   match: 'selector',
@@ -61,7 +61,7 @@ export const previous = new CustomPseudoClass({
 })
 
 // :contains-regex()
-export const containsRegex = new CustomPseudoClass({
+module.exports.containsRegex = new CustomPseudoClass({
   name: 'containsRegex',
   args: ['selector', 'regex'],
   match: 'selector',
@@ -71,7 +71,7 @@ export const containsRegex = new CustomPseudoClass({
 })
 
 // :contains-text()
-export const containsText = new CustomPseudoClass({
+module.exports.containsText = new CustomPseudoClass({
   name: 'containsText',
   args: ['selector', 'string'],
   match: 'selector',
@@ -81,7 +81,7 @@ export const containsText = new CustomPseudoClass({
 })
 
 // :excludes-regex()
-export const excludesRegex = new CustomPseudoClass({
+module.exports.excludesRegex = new CustomPseudoClass({
   name: 'excludesRegex',
   args: ['selector', 'regex'],
   match: 'selector',
@@ -91,7 +91,7 @@ export const excludesRegex = new CustomPseudoClass({
 })
 
 // :excludes-text()
-export const excludesText = new CustomPseudoClass({
+module.exports.excludesText = new CustomPseudoClass({
   name: 'excludesText',
   args: ['selector', 'string'],
   match: 'selector',
@@ -101,7 +101,7 @@ export const excludesText = new CustomPseudoClass({
 })
 
 // :grandparent
-export const grandparent = new CustomPseudoClass({
+module.exports.grandparent = new CustomPseudoClass({
   name: 'grandparent',
   args: ['selector'],
   match: 'selector',
@@ -111,7 +111,7 @@ export const grandparent = new CustomPseudoClass({
 })
 
 // :in-viewport()
-export const inViewport = new CustomPseudoClass({
+module.exports.inViewport = new CustomPseudoClass({
   name: 'inViewport',
   args: ['selector', 'option'],
   match: 'selector',
@@ -132,7 +132,7 @@ export const inViewport = new CustomPseudoClass({
 })
 
 // :overflowed()
-export const overflowed = new CustomPseudoClass({
+module.exports.overflowed = new CustomPseudoClass({
   name: 'overflowed',
   args: ['selector', 'options'],
   match: 'selector',
@@ -149,7 +149,7 @@ export const overflowed = new CustomPseudoClass({
 })
 
 // :min-aspect-ratio()
-export const minAspectRatio = new CustomPseudoClass({
+module.exports.minAspectRatio = new CustomPseudoClass({
   name: 'minAspectRatio',
   args: ['selector', 'number'],
   match: 'selector',
@@ -159,7 +159,7 @@ export const minAspectRatio = new CustomPseudoClass({
 })
 
 // :max-aspect-ratio()
-export const maxAspectRatio = new CustomPseudoClass({
+module.exports.maxAspectRatio = new CustomPseudoClass({
   name: 'maxAspectRatio',
   args: ['selector', 'number'],
   match: 'selector',
@@ -169,7 +169,7 @@ export const maxAspectRatio = new CustomPseudoClass({
 })
 
 // :min-characters()
-export const minCharacters = new CustomPseudoClass({
+module.exports.minCharacters = new CustomPseudoClass({
   name: 'minCharacters',
   args: ['selector', 'number'],
   match: 'selector',
@@ -184,7 +184,7 @@ export const minCharacters = new CustomPseudoClass({
 })
 
 // :characters()
-export const characters = new CustomPseudoClass({
+module.exports.characters = new CustomPseudoClass({
   name: 'characters',
   args: ['selector', 'number'],
   match: 'selector',
@@ -199,7 +199,7 @@ export const characters = new CustomPseudoClass({
 })
 
 // :max-characters()
-export const maxCharacters = new CustomPseudoClass({
+module.exports.maxCharacters = new CustomPseudoClass({
   name: 'maxCharacters',
   args: ['selector', 'number'],
   match: 'selector',
@@ -214,7 +214,7 @@ export const maxCharacters = new CustomPseudoClass({
 })
 
 // :min-children()
-export const minChildren = new CustomPseudoClass({
+module.exports.minChildren = new CustomPseudoClass({
   name: 'minChildren',
   args: ['selector', 'number'],
   match: 'selector',
@@ -224,7 +224,7 @@ export const minChildren = new CustomPseudoClass({
 })
 
 // :children()
-export const children = new CustomPseudoClass({
+module.exports.children = new CustomPseudoClass({
   name: 'children',
   args: ['selector', 'number'],
   match: 'selector',
@@ -234,7 +234,7 @@ export const children = new CustomPseudoClass({
 })
 
 // :max-children()
-export const maxChildren = new CustomPseudoClass({
+module.exports.maxChildren = new CustomPseudoClass({
   name: 'maxChildren',
   args: ['selector', 'number'],
   match: 'selector',
@@ -244,7 +244,7 @@ export const maxChildren = new CustomPseudoClass({
 })
 
 // :min-height()
-export const minHeight = new CustomPseudoClass({
+module.exports.minHeight = new CustomPseudoClass({
   name: 'minHeight',
   args: ['selector', 'number'],
   match: 'selector',
@@ -254,7 +254,7 @@ export const minHeight = new CustomPseudoClass({
 })
 
 // :max-height()
-export const maxHeight = new CustomPseudoClass({
+module.exports.maxHeight = new CustomPseudoClass({
   name: 'maxHeight',
   args: ['selector', 'number'],
   match: 'selector',
@@ -264,7 +264,7 @@ export const maxHeight = new CustomPseudoClass({
 })
 
 // :min-scroll-x()
-export const minScrollX = new CustomPseudoClass({
+module.exports.minScrollX = new CustomPseudoClass({
   name: 'minScrollX',
   args: ['selector', 'number'],
   match: 'selector',
@@ -274,7 +274,7 @@ export const minScrollX = new CustomPseudoClass({
 })
 
 // :max-scroll-x()
-export const maxScrollX = new CustomPseudoClass({
+module.exports.maxScrollX = new CustomPseudoClass({
   name: 'maxScrollX',
   args: ['selector', 'number'],
   match: 'selector',
@@ -284,7 +284,7 @@ export const maxScrollX = new CustomPseudoClass({
 })
 
 // :min-scroll-y()
-export const minScrollY = new CustomPseudoClass({
+module.exports.minScrollY = new CustomPseudoClass({
   name: 'minScrollY',
   args: ['selector', 'number'],
   match: 'selector',
@@ -294,7 +294,7 @@ export const minScrollY = new CustomPseudoClass({
 })
 
 // :max-scroll-y()
-export const maxScrollY = new CustomPseudoClass({
+module.exports.maxScrollY = new CustomPseudoClass({
   name: 'maxScrollY',
   args: ['selector', 'number'],
   match: 'selector',
@@ -304,7 +304,7 @@ export const maxScrollY = new CustomPseudoClass({
 })
 
 // :min-width()
-export const minWidth = new CustomPseudoClass({
+module.exports.minWidth = new CustomPseudoClass({
   name: 'minWidth',
   args: ['selector', 'number'],
   match: 'selector',
@@ -314,7 +314,7 @@ export const minWidth = new CustomPseudoClass({
 })
 
 // :max-width()
-export const maxWidth = new CustomPseudoClass({
+module.exports.maxWidth = new CustomPseudoClass({
   name: 'maxWidth',
   args: ['selector', 'number'],
   match: 'selector',
@@ -324,7 +324,7 @@ export const maxWidth = new CustomPseudoClass({
 })
 
 // :orientation()
-export const orientation = new CustomPseudoClass({
+module.exports.orientation = new CustomPseudoClass({
   name: 'orientation',
   args: ['selector', 'option'],
   match: 'selector',
@@ -340,7 +340,7 @@ export const orientation = new CustomPseudoClass({
 })
 
 // :attr-greater-than()
-export const attrGreater = new CustomPseudoClass({
+module.exports.attrGreater = new CustomPseudoClass({
   name: 'attrGreater',
   args: ['selector', 'attribute', 'number'],
   match: 'selector',
@@ -356,7 +356,7 @@ export const attrGreater = new CustomPseudoClass({
 })
 
 // :attr-less-than()
-export const attrLess = new CustomPseudoClass({
+module.exports.attrLess = new CustomPseudoClass({
   name: 'attrLess',
   args: ['selector', 'attribute', 'number'],
   match: 'selector',
@@ -372,11 +372,11 @@ export const attrLess = new CustomPseudoClass({
 })
 
 // :empty()
-export const empty = new CustomPseudoClass({
+module.exports.empty = new CustomPseudoClass({
   name: 'empty',
   args: ['selector',],
   match: 'selector',
-  filter: '(tag.value ? tag.value : tag.textContent).trim() === ""',
+  filter: '(tag.value ? tag.value : tag.textContent).trim() === ``',
   target: 'tag',
   selector: '${selector}'
 })

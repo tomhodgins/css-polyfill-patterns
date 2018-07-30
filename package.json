@@ -1,0 +1,32 @@
+{
+  "name": "css-polyfill-patterns",
+  "version": "0.0.1",
+  "description": "A collection of JS function templates for extending CSS",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomhodgins/css-polyfill-patterns.git"
+  },
+  "keywords": [
+    "css",
+    "polyfill",
+    "extend",
+    "jsincss",
+    "pattern",
+    "template",
+    "function"
+  ],
+  "author": "Tommy Hodgins",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tomhodgins/css-polyfill-patterns/issues"
+  },
+  "homepage": "https://github.com/tomhodgins/css-polyfill-patterns#readme"
+}

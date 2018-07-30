@@ -1,7 +1,7 @@
-import CustomAtRule from '../lib/custom-at-rule.js'
+const CustomAtRule = require('../lib/custom-at-rule.js')
 
 // @element selector (conditions) {}
-export const element = new CustomAtRule({
+module.exports.element = new CustomAtRule({
   name: 'element',
   features: {
     minWidth: (el, number) => number <= el.offsetWidth,
@@ -39,7 +39,7 @@ export const element = new CustomAtRule({
 })
 
 // @overflow selector (condition) {}
-export const overflow = new CustomAtRule({
+module.exports.overflow = new CustomAtRule({
   name: 'overflow',
   features: {
     top: tag => tag.scrollTop > 0,
@@ -52,7 +52,7 @@ export const overflow = new CustomAtRule({
 })
 
 // @in-viewport selector (condition) {}
-export const viewport = new CustomAtRule({
+module.exports.viewport = new CustomAtRule({
   name: 'overflow',
   features: {
     fully: tag => tag.getBoundingClientRect().top >= 0

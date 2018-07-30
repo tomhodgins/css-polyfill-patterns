@@ -1,7 +1,7 @@
-import CustomDynamicValue from '../lib/custom-dynamic-value.js'
+const CustomDynamicValue = require('../lib/custom-dynamic-value.js')
 
 // aspect-ratio: width/height;
-export const aspect = new CustomDynamicValue({
+module.exports.aspect = new CustomDynamicValue({
   name: 'aspect',
   args: ['selector', 'ratio'],
   match: 'selector',
@@ -11,7 +11,7 @@ export const aspect = new CustomDynamicValue({
 })
 
 // EW, EH, EMIN, EMAX units
-export const eunit = new CustomDynamicValue({
+module.exports.eunit = new CustomDynamicValue({
   name: 'eunit',
   args: ['selector', 'rule'],
   match: 'selector',
@@ -37,7 +37,7 @@ export const eunit = new CustomDynamicValue({
 })
 
 // --frontend: 'variables';
-export const variable = new CustomDynamicValue({
+module.exports.variable = new CustomDynamicValue({
   name: 'variable',
   args: ['selector', 'rule'],
   match: 'selector',
