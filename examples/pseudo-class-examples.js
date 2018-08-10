@@ -374,9 +374,19 @@ module.exports.attrLess = new CustomPseudoClass({
 // :empty()
 module.exports.empty = new CustomPseudoClass({
   name: 'empty',
-  args: ['selector',],
+  args: ['selector'],
   match: 'selector',
   filter: '(tag.value ? tag.value : tag.textContent).trim() === ``',
+  target: 'tag',
+  selector: '${selector}'
+})
+
+// :computed()
+module.exports.computed = new CustomPseudoClass({
+  name: 'computed',
+  args: ['selector', 'property', 'value'],
+  match: 'selector',
+  filter: 'window.getComputedStyle(tag)[property] === value',
   target: 'tag',
   selector: '${selector}'
 })
