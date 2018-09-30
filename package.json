@@ -28,5 +28,12 @@
   "bugs": {
     "url": "https://github.com/tomhodgins/css-polyfill-patterns/issues"
   },
-  "homepage": "https://github.com/tomhodgins/css-polyfill-patterns#readme"
+  "homepage": "https://github.com/tomhodgins/css-polyfill-patterns#readme",
+  "devDependencies": {
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "jsincss": "^2.1.0",
+    "webpack": "^4.20.2"
+  }
 }
